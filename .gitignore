@@ -1,0 +1,10 @@
+.gradletasknamecache
+.idea
+*.iml
+target
+.gradle
+build
+work
+*.orig
+classes
+published-artifacts-*

@@ -1,0 +1,70 @@
+package theglue.psd2.journey.sepa;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+public class Person {
+
+    private String name;
+    private int age;
+    static List<Person> people =
+            Arrays.asList(
+                    new Person("Max", 18),
+                    new Person("Peter", 23),
+                    new Person("Pamela", 23),
+                    new Person("David", 12));
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
+    public static List<Person> displayPeopleWithStartingLetter(String letter) {
+
+        return people.stream().filter(person -> person.getName().startsWith(letter)).collect(Collectors.toList());
+    }
+
+    public static Map<Integer, List<Person>> groupPeopleByAge() {
+
+        return null;
+    }
+
+    public static Optional<Person> determineOldestPerson() {
+
+        return people
+                .stream()
+                .reduce((person1, person2) -> person1.getAge() > person2.getAge() ? person1 : person2);
+    }
+//nu intoarce un optional - avem valoarea identitate care se va returna oricum
+    public static Person determineAggregatedNamesAndAges() {
+
+        return null;
+    }
+}
