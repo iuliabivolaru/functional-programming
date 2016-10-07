@@ -53,7 +53,7 @@ public class Person {
 
     public static Map<Integer, List<Person>> groupPeopleByAge() {
 
-        return null;
+        return people.stream().sorted().limit(2).collect(Collectors.groupingBy(p -> p.age));
     }
 
     public static Optional<Person> determineOldestPerson() {
@@ -64,7 +64,12 @@ public class Person {
     }
 //nu intoarce un optional - avem valoarea identitate care se va returna oricum
     public static Person determineAggregatedNamesAndAges() {
-
-        return null;
+        return people
+                .stream()
+                .reduce(new Person("", 0), (p1, p2) -> {
+                    p1.age += p2.age;
+                    p1.name += p2.name;
+                    return p1;
+                });
     }
 }
