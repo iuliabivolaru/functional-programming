@@ -1,4 +1,4 @@
-package theglue.psd2.journey.sepa;
+package theglue;
 
 import java.util.Arrays;
 import java.util.List;

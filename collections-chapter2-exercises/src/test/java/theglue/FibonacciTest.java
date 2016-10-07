@@ -1,7 +1,8 @@
-package theglue.psd2.journey.sepa;
+package theglue;
 
 import org.junit.Assert;
 import org.junit.Test;
+import theglue.Fibonacci;
 
 import java.math.BigInteger;
 import java.util.Arrays;

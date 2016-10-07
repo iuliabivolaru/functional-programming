@@ -1,7 +1,8 @@
-package theglue.psd2.journey.sepa;
+package theglue;
 
 import org.junit.Assert;
 import org.junit.Test;
+import theglue.Person;
 
 import java.util.List;
 import java.util.Map;

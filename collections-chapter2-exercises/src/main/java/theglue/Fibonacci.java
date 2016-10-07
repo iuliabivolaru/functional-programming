@@ -1,4 +1,4 @@
-package theglue.psd2.journey.sepa;
+package theglue;
 
 import java.math.BigInteger;
 import java.util.stream.Stream;
