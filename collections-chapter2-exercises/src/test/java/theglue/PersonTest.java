@@ -34,4 +34,35 @@ public class PersonTest {
         Assert.assertEquals(aggregated.getAge(), 76);
         Assert.assertEquals(aggregated.getName(), "MaxPeterPamelaDavid");
     }
+
+    @Test
+    public void givenAListOfPeople_whenAggregate_verifyTotalNumberOfAChars() {
+        Integer charsANumber = Person.determineNumberOfACharsInNames();
+        Assert.assertEquals(4, charsANumber.intValue());
+    }
+
+    @Test
+    public void givenAListOfPeople_whenSort_verifySorted() {
+        List<Person> sorted = Person.sortPeopleByAge();
+        Assert.assertTrue(sorted.get(0).getAge() < sorted.get(1).getAge());
+    }
+
+    @Test
+    public void givenAListOfPeople_whenCollect_verifyPeopleYoungerThan20() {
+        List<Person> peopleYounger20 = Person.displayPeopleYoungerThan20();
+        Assert.assertEquals(peopleYounger20.size(), 2);
+    }
+
+    @Test
+    public void givenAListOfPeople_whenCollect_groupPeopleByAge() {
+        Map<Integer, List<Person>> peopleGroupedByAge = Person.peopleGroupedByAge();
+        Assert.assertEquals(peopleGroupedByAge.size(), 3);
+    }
+
+    @Test
+    public void givenAListOfPeople_whenCollect_oldestPersonInGroup() {
+        Map<Character, Optional<Person>> oldestPersonInEachGroup = Person.displayOldestPeopleInGroupsByFirstCharInName();
+        Assert.assertEquals(oldestPersonInEachGroup.size(), 3);
+    }
+
 }

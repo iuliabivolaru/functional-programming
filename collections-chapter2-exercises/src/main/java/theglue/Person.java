@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.IntPredicate;
 import java.util.stream.Collectors;
 
 public class Person {
@@ -62,7 +63,8 @@ public class Person {
                 .stream()
                 .reduce((person1, person2) -> person1.getAge() > person2.getAge() ? person1 : person2);
     }
-//nu intoarce un optional - avem valoarea identitate care se va returna oricum
+
+    //nu intoarce un optional - avem valoarea identitate care se va returna oricum
     public static Person determineAggregatedNamesAndAges() {
         return people
                 .stream()
@@ -71,5 +73,41 @@ public class Person {
                     p1.name += p2.name;
                     return p1;
                 });
+    }
+
+    public static Integer determineNumberOfACharsInNames() {
+        return people.stream()
+                .map(person -> person.getName().chars()
+                        .filter(c -> {
+                            boolean a1 = c == 97;
+                            return a1;
+                        })
+                        //caracterul 'a' se va considera ca are valoarea 1
+                        .map(c -> 1)
+                        .reduce(0, (a, b) -> a + b)
+                ).reduce(0, (a, b) -> a + b);
+    }
+
+    //flatMap despacheteaza continutul stream<stream<...>>...
+    public static Integer determineNumberOfACharsInNamesSecondMethod() {
+        return people.stream()
+                .flatMap(person -> person.getName().chars().mapToObj(c -> c))
+                .reduce(0, (a, b) -> a + b);
+    }
+
+    public static List<Person> sortPeopleByAge() {
+        return null;
+    }
+
+    public static List<Person> displayPeopleYoungerThan20() {
+        return null;
+    }
+
+    public static Map<Integer, List<Person>> peopleGroupedByAge() {
+        return null;
+    }
+
+    public static Map<Character, Optional<Person>> displayOldestPeopleInGroupsByFirstCharInName() {
+        return null;
     }
 }
