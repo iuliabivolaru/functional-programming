@@ -2,4 +2,6 @@ rootProject.name = 'functional-programming'
 include 'collections-chapter2-exercises'
 findProject(':collections-chapter2-exercises')?.name = 'functional-programming'
 include 'chapter3-exercises'
+include 'collections'
+include 'chapter5-resources-exercises'
 

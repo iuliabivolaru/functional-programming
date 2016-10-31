@@ -1,9 +1,6 @@
 package theglue;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.IntPredicate;
 import java.util.stream.Collectors;
 
@@ -96,15 +93,15 @@ public class Person {
     }
 
     public static List<Person> sortPeopleByAge() {
-        return null;
+        return people.stream().sorted((o1, o2) -> new Integer(o1.getAge()).compareTo(o2.getAge())).collect(Collectors.toList());
     }
 
     public static List<Person> displayPeopleYoungerThan20() {
-        return null;
+        return people.stream().filter(person -> person.getAge() < 20).collect(Collectors.toList());
     }
 
     public static Map<Integer, List<Person>> peopleGroupedByAge() {
-        return null;
+        return people.stream().collect(Collectors.groupingBy(Person::getAge));
     }
 
     public static Map<Character, Optional<Person>> displayOldestPeopleInGroupsByFirstCharInName() {
