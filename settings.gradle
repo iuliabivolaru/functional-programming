@@ -4,4 +4,6 @@ findProject(':collections-chapter2-exercises')?.name = 'functional-programming'
 include 'chapter3-exercises'
 include 'collections'
 include 'chapter5-resources-exercises'
+include 'chapter6-being-fpij-exercises'
+include 'chapter7-optimizing-recursions-exercises'
 
