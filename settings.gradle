@@ -6,4 +6,4 @@ include 'collections'
 include 'chapter5-resources-exercises'
 include 'chapter6-being-fpij-exercises'
 include 'chapter7-optimizing-recursions-exercises'
-
+include 'chapter8-composing-exercises'
